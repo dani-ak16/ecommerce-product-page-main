@@ -24,7 +24,7 @@
     <nav class="nav-bar">
       <img src="./images/icon-menu.svg" alt="menu button" id="menu-btn">
       <div class="menu-panel">
-        <img src="./images/icon-close.svg" alt="close button" id="">
+        <img src="./images/icon-close.svg" alt="close button" id="close-btn">
         <ul>
           <li><a href="#">Collections</a></li>
           <li><a href="#">Men</a></li>
@@ -34,13 +34,13 @@
         </ul>
       </div>
 
-      <a href="#">
+      <a href="#" id="logo">
         <img src="./images/logo.svg" alt="sneakers logo">
       </a>
     </nav>
     
     <nav class="nav-bar">
-      <img src="./images/icon-cart.svg" alt="cart" id="cart-btn">
+      <button id="cart-btn"><img src="./images/icon-cart.svg" alt="cart"></button>
       <img src="./images/image-avatar.png" alt="profile image" id="avatar-img">
     </nav>
   </section>
@@ -50,8 +50,8 @@
       <div class="product-image"></div>
 
       <div class="arrow-btn-container container">
-        <button id="arrow-btn"><img src="./images/icon-previous.svg" alt="arrow icon previous"></button>
-        <button id="arrow-btn"><img src="./images/icon-next.svg" alt="arrow icon next"></button>
+        <button class="arrow-btn" id="previous-btn"><img src="./images/icon-previous.svg" alt="arrow icon previous"></button>
+        <button class="arrow-btn" id="next-btn"><img src="./images/icon-next.svg" alt="arrow icon next"></button>
       </div>
 
       <div class="thumbnail-image-container">
@@ -59,32 +59,45 @@
       </div>
     </div>
 
-  
-    
-    
     <div class="container">
   
-      Sneaker Company
+      <span id="title">Sneaker Company</span>
   
-      Fall Limited Edition Sneakers
+      <h1>Fall Limited Edition Sneakers</h1>
   
-      These low-profile sneakers are your perfect casual wear companion. Featuring a
-      durable rubber outer sole, they’ll withstand everything the weather can offer.
+      <p>
+        These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
   
-      $125.00
-      50%
-      $250.00
+      <div class="price-box">
+        <div>
+          <span id="current-price">$125.00</span>
+          <div id="discount-percentage"><span>50%</span></div>
+        </div>
+        <span id="old-price">$250.00</span>
+      </div>
   
-      0
-      Add to cart
+      <div class="cart-box">
+        <div class="quantity-box">
+          <button class="quantity-btn" id="decrement-btn"><img src="./images/icon-minus.svg" alt="minus icon"></button>
+          <span id="item-quantity">0</span>
+          <button class="quantity-btn" id="increment-btn"><img src="./images/icon-plus.svg" alt="plus icon"></button>
+        </div>
+        
+        <button class="btn add-to-cart">
+          <img src="./images/icon-cart.svg" alt="cart icon">
+          Add to cart
+        </button>
+      </div>
     </div>
   </section>
 
   
   
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>
