@@ -55,16 +55,23 @@ incrementBtn.addEventListener("click", () => {
     quantity += 1
     itemQuantity.innerText = quantity
     cartQuantity.innerText = quantity
+    cartQuantity.style.display = `block`
 })
 
 decrementBtn.addEventListener("click", () => {
     if (quantity === 0) {
         itemQuantity.innerText = quantity
         return
-    } else {
+    } else if (quantity === 1) {
+        cartQuantity.innerText = ``
+        cartQuantity.style.display = `none`
+        quantity -= 1
+        itemQuantity.innerText = quantity
+    }else {
         quantity -= 1
         itemQuantity.innerText = quantity
         cartQuantity.innerText = quantity
+        
     }
     
 })
