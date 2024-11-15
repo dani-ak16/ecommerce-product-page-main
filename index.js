@@ -47,12 +47,12 @@ addToCart.addEventListener("click", () => {
 })
 
 menuBtn.addEventListener("click", () => {
-    menuPanel.style.display = "flex"
+    menuPanel.classList.add("active")
     overlay.classList.add("active")
 })
 
 closeBtn.addEventListener("click", () => {
-    menuPanel.style.display = "none"
+    menuPanel.classList.toggle("active")
     overlay.classList.toggle("active")
 })
 
@@ -105,5 +105,5 @@ cartBtn.addEventListener("click", () => {
 })
 
 deleteBtn.addEventListener("click", () => {
-    
+
 })
