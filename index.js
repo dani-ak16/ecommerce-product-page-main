@@ -12,7 +12,7 @@ const overlay = document.getElementById("overlay")
 const cartQuantity = document.getElementById("cart-quantity")
 const cartDetailsContainer = document.querySelector(".cart-details-container")
 const deleteBtn = document.getElementById("delete-btn")
-const productQuantity = document.getElementById("[product-quantity")
+const productQuantity = document.getElementById("product-quantity")
 const productTotal = document.getElementById("product-total")
 const cartPanel = document.querySelector(".cart-panel")
 const addToCart = document.querySelector (".add-to-cart")
@@ -27,23 +27,11 @@ const images = [
 let count = 0
 let quantity = 0
 
-addToCart.addEventListener("click", () => {
-    cartDetailsContainer.innerHTML = `
-        <div class="cart-details">
-            <img src="./images/image-product-1-thumbnail.jpg" alt="">
-            <div>
-              <span>Fall Limited Edition Sneakers</span>
-              <div>
-                <span>$125.00</span>
-                <span id="product-quantity"></span>
-                <span id="product-total"></span>
-              </div>
-            </div>
-            <button id="delete-btn"><img src="./images/icon-delete.svg" alt=""></button>
-        </div>
+const renderCart = () => {
 
-        <button class="btn checkout-btn">Checkout</button>
-    `
+}
+addToCart.addEventListener("click", () => {
+    
 })
 
 menuBtn.addEventListener("click", () => {
@@ -80,6 +68,8 @@ incrementBtn.addEventListener("click", () => {
     quantity += 1
     itemQuantity.innerText = quantity
     cartQuantity.innerText = quantity
+    productQuantity.innerText = `x ${quantity}`
+    productTotal.innerText = `$${(quantity * 125).toFixed(2)}`
     cartQuantity.style.display = `block`
 })
 
@@ -92,11 +82,17 @@ decrementBtn.addEventListener("click", () => {
         cartQuantity.style.display = `none`
         quantity -= 1
         itemQuantity.innerText = quantity
+        productQuantity.innerText = `x ${quantity}`
+        productTotal.innerText = `$${(quantity * 125).toFixed(2)}`
+        cartDetailsContainer.innerHTML = `
+            <div id="cart-empty">Your cart is empty.</div>
+        `
     }else {
         quantity -= 1
         itemQuantity.innerText = quantity
         cartQuantity.innerText = quantity
-        
+        productQuantity.innerText = `x ${quantity}`
+        productTotal.innerText = `$${(quantity * 125).toFixed(2)}`
     }  
 })
 

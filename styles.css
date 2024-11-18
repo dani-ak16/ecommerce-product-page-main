@@ -21,6 +21,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .container {
@@ -79,7 +80,7 @@ body {
         left: 0;
         bottom: 0;
         background: var(--white);
-        height: 100vh;
+        height: calc(100% - env(safe-area-inset-bottom));
         z-index: 10;
         width: 65%;
         padding: 1.6rem;
@@ -155,10 +156,11 @@ body {
     .main {
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
 
     .product-image-container {
-        height: 35vh;
+        height: calc(35% - env(safe-area-inset-bottom));
         overflow: hidden;
         position: relative;
         margin-bottom: 1rem;
@@ -196,6 +198,8 @@ body {
 
     .cart-panel {
         display: none;
+        display: flex;
+        flex-direction: column;
         position: absolute;
         background: var(--white);
         top: 45%;
@@ -205,17 +209,19 @@ body {
         padding: 1rem;
         overflow: hidden;
         min-height: 85%;
+        background: blue;
     }
 
     #cart-panel-heading {
         right: 0; 
         width: calc(100% + 3rem);
         margin-right: 0;
-        margin-bottom: 1.3rem;
+        /* margin-bottom: 1.3rem; */
         transform: translateX(-1rem);
         border-bottom: .2px solid var(--grayish-blue);
         padding-left: 1rem;
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
+        padding-top: .5rem;
     }
 
     #cart-panel-heading > span {
@@ -239,30 +245,37 @@ body {
         border: none;
     }
 
+    .cart-details > div > div {
+        margin-top: 1rem;   
+    }
+
+    .cart-details span {
+        color: var(--grayish-blue);
+    }
+
     .cart-details-container {
         display: flex;
         flex-direction: column;
-        
+        padding-top: 1.3rem;
+        background: red;
     }
 
-    .cart-details-container > span{
+    #cart-empty{
         font-weight: var(--strong-font-weight);
         color: var(--dark-grayish-blue);
         align-self: center;
-        
-    }
-
-    #product-quantity {
-
+        height: 100%;
     }
 
     #product-total {
         font-weight: var(--strong-font-weight);
+        color: var(--black);
     }
 
     .checkout-btn {
         background: var(--orange);
         font-weight: var(--strong-font-weight);
+        color: var(--black);
     }
 
     #title {
