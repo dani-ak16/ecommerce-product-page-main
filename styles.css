@@ -469,6 +469,12 @@ body {
         height: 2.5rem;
         width: 2.5rem;
         margin-left: 2rem;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    #avatar-img:hover {
+        border: 1px solid var(--orange);
     }
 
     .menu-panel {
@@ -511,9 +517,14 @@ body {
         justify-content: space-between;
     }
 
-    .thumbnail-image-container img {
+    .thumbnail-image {
         width: 20%;
+    }
+
+    .thumbnail-image img {
         border-radius: 1rem;
+        height: auto;
+        width: 100%;
     }
 
     .copy-container {
