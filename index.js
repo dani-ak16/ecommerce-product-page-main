@@ -15,10 +15,16 @@ const deleteBtn = document.getElementById("delete-btn")
 const productQuantity = document.getElementById("product-quantity")
 const productTotal = document.getElementById("product-total")
 const cartPanel = document.querySelector(".cart-panel")
-const addToCart = document.querySelector (".add-to-cart")
+const addToCart = document.querySelector(".add-to-cart")
 const checkoutBtn = document.querySelector(".checkout-btn")
 const cartDetails = document.querySelector(".cart-details")
 const cartEmpty = document.getElementById("cart-empty")
+const lightbox = document.querySelector(".lightbox")
+const lightboxCloseBtn = document.getElementById("lightbox-close-btn")
+const lightboxNextBtn = document.getElementById("lightbox-next-btn")
+const lightboxPreviousBtn = document.getElementById("lightbox-previous-btn")
+const lightboxProductImage = document.getElementById("lightbox-product-image")
+const lightboxThumbnailImages = document.getElementsByClassName("lightbox-thumbnail-image")
 
 const images = [
     `url(./images/image-product-1.jpg)`,
@@ -122,4 +128,43 @@ deleteBtn.addEventListener("click", () => {
     itemQuantity.innerText = quantity
     cartQuantity.style.display = `none`
     renderCart()
+})
+
+productImage.addEventListener("click", () => {
+    lightbox.classList.add("active")
+})
+
+lightboxCloseBtn.addEventListener("click", () => {
+    lightbox.classList.toggle("active")
+})
+
+lightboxNextBtn.addEventListener("click", () => {
+    if (count < images.length - 1) {
+        count += 1
+        lightboxProductImage.style.backgroundImage = `${images[count]}`
+        if (lightboxThumbnailImages[count].classList.contains("active")){
+            return
+            lightboxThumbnailImages[count].classList.toggle('active')
+        }else {
+            lightboxThumbnailImages[count].classList.add('active')
+            lightboxThumbnailImages[count-1].classList.remove('active')
+        }
+    } else {
+        count = 0
+        lightboxProductImage.style.backgroundImage = `${images[count]}`
+        lightboxThumbnailImages[count].classList.add('active')
+        lightboxThumbnailImages[images.length - 1].classList.remove('active')
+    }
+})
+
+lightboxPreviousBtn.addEventListener("click", () => {
+    if (count === 0) {
+        count = images.length - 1
+        lightboxProductImage.style.backgroundImage = `${images[count]}`
+        // thumbnailImages[count].classList.toggle('active')
+    } else {
+        count -= 1
+        lightboxProductImage.style.backgroundImage = `${images[count]}`
+        // thumbnailImages[count].classList.toggle('active')
+    }
 })
